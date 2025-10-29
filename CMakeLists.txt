@@ -36,30 +36,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(SFML)
 
 #---------------------------------------------------------------------------------------------------
-# Example external library added.
-#---------------------------------------------------------------------------------------------------
-# FetchContent_Declare(
-#     <external_library>
-#     GIT_REPOSITORY <external_library_url>
-#     GIT_TAG <branch_name>
-# )
-# FetchContent_MakeAvailable(<external_library>)
-
-#---------------------------------------------------------------------------------------------------
 # Source(s)
 #---------------------------------------------------------------------------------------------------
-# set(LIB_SOURCES
-#     # ${SRC_DIR}/ex/ex.cpp
-# )
-
-# Create library to call from tests/.
-# add_library(${PROJECT_NAME}_lib ${LIB_SOURCES})
-# target_include_directories(${PROJECT_NAME}_lib PUBLIC
-#     ${INC_DIR}
-#     ${SRC_DIR}
-# )
-
-file(GLOB WINDOW_SRCS ${SRC_DIR}/window/*.cpp)
+file(GLOB WINDOW_SRCS ${SRC_DIR}/Components/window/*.cpp)
 
 add_executable(${PROJECT_NAME} 
     ${SRC_DIR}/main.cpp
@@ -67,7 +46,6 @@ add_executable(${PROJECT_NAME}
     ${WINDOW_SRCS}
 )
 target_link_libraries(${PROJECT_NAME} PRIVATE
-#     ${PROJECT_NAME}_lib
       sfml-graphics
 )
 
